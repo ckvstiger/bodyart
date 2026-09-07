@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>熱血格鬥殿堂 · 拳擊 × 跆拳道 | 極限雙武道對決</title>
+  <meta name="description" content="一擊必殺的重砲鐵拳，與凌空制霸的旋風踢擊！深度解析拳擊與跆拳道的武術精髓、經典招式、戰術數據對決與互動連招體驗。">
+  
+  <!-- Google Fonts: Oswald, Montserrat, Noto Sans TC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,900;1,800&family=Noto+Sans+TC:wght@400;500;700;900&family=Oswald:wght@500;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Background Animated Particle Canvas -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- ===================================================
+       HEADER & NAVIGATION
+       =================================================== -->
+  <header class="navbar">
+    <div class="container">
+      <a href="#" class="nav-brand">
+        <div class="brand-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.5 17.5L3 6V3h3l11.5 11.5"></path>
+            <path d="M13 19l6-6"></path>
+            <path d="M16 22l5-5"></path>
+          </svg>
+        </div>
+        <span class="brand-text-box">BOXING</span>
+        <span class="brand-vs">VS</span>
+        <span class="brand-text-tkd">TAEKWONDO</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#hero" class="nav-link">對決首頁</a>
+        <a href="#arena" class="nav-link">連招模擬器</a>
+        <a href="#boxing" class="nav-link">拳擊殿堂</a>
+        <a href="#taekwondo" class="nav-link">跆拳絕技</a>
+        <a href="#radar" class="nav-link">五維數據</a>
+        <a href="#legends" class="nav-link">傳奇名人</a>
+        <a href="#gear" class="nav-link">修煉指南</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="sound-toggle-btn" id="soundToggleBtn" title="點擊切換音效">
+          <span class="sound-icon-indicator"></span>
+          <span id="soundStatusText">音效：開啟</span>
+        </button>
+        <a href="#arena" class="nav-cta-btn">🔥 立即試招</a>
+        <button class="mobile-menu-btn" id="mobileToggleBtn" aria-label="選單">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================
+       HERO SECTION - CLASH OF TITANS
+       =================================================== -->
+  <section class="hero-section" id="hero">
+    <div class="hero-glow-overlay"></div>
+    <div class="container">
+      <div class="hero-header">
+        <div class="hero-badge">
+          <span>⚡ BATTLE OF MARTIAL ARTS SPIRIT ⚡</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="text-fire">烈焰拳魂</span>
+          <span class="text-clash">×</span>
+          <span class="text-thunder">雷霆腿術</span>
+        </h1>
+        <p class="hero-subtitle">
+          一擊必殺的重砲鐵拳，與凌空制霸的旋風踢擊 —— 探索拳擊（力量與防禦的終極藝術）與跆拳道（速度與制空的極限美學）的武道世界！
+        </p>
+      </div>
+
+      <!-- Split Visual Clash Cards -->
+      <div class="hero-clash-grid">
+        
+        <!-- Boxing Clash Card -->
+        <div class="clash-card clash-card-box" onclick="location.href='#boxing'">
+          <div>
+            <span class="card-tag tag-boxing">THE SWEET SCIENCE · 拳擊</span>
+            <h2 class="card-title text-fire">純粹力量 · 近身重砲</h2>
+            <p class="card-epithet">「拳頭所至之處，皆為我的領地」</p>
+          </div>
+
+          <!-- Dynamic Boxing SVG Artwork -->
+          <div class="artwork-display">
+            <svg class="artwork-svg" viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Flame Glow Base -->
+              <circle cx="100" cy="80" r="65" fill="url(#boxGlowGrad)" opacity="0.4"/>
+              <!-- Boxer Punching Glove Vector -->
+              <path d="M40 85 C40 60 70 50 95 55 C120 60 145 65 160 80 C170 90 165 110 145 115 C120 120 80 115 60 110 Z" fill="#ff2a44" stroke="#ff8800" stroke-width="3"/>
+              <!-- Fist Thumb & Knuckle Wrap -->
+              <path d="M125 60 C135 50 155 55 160 70 C165 85 150 95 135 90 Z" fill="#b30018" stroke="#ffaa00" stroke-width="2"/>
+              <!-- Wrist Wrap Stripes -->
+              <rect x="35" y="70" width="22" height="40" rx="4" fill="#ffffff" stroke="#ff2a44" stroke-width="2"/>
+              <line x1="38" y1="80" x2="54" y2="80" stroke="#ff2a44" stroke-width="2"/>
+              <line x1="38" y1="90" x2="54" y2="90" stroke="#ff2a44" stroke-width="2"/>
+              <line x1="38" y1="100" x2="54" y2="100" stroke="#ff2a44" stroke-width="2"/>
+              <!-- Motion Trails & Sparks -->
+              <path d="M165 75 L190 60 M170 85 L195 85 M165 95 L190 110" stroke="#ffd700" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="185" cy="85" r="5" fill="#fff" filter="drop-shadow(0 0 8px #ff2a44)"/>
+              <defs>
+                <radialGradient id="boxGlowGrad" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#ff2a44" stop-opacity="0.8"/>
+                  <stop offset="100%" stop-color="#ff2a44" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+            </svg>
+          </div>
+
+          <div class="card-stats">
+            <div class="stat-item">
+              <div class="stat-label">打擊核心</div>
+              <div class="stat-value" style="color: var(--box-primary);">重拳 & 閃躲步法</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">瞬間爆發</div>
+              <div class="stat-value" style="color: var(--gold-accent);">980 kg (重拳衝擊)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Center VS Clash Emblem -->
+        <div class="hero-vs-badge">
+          <div class="vs-spark-line"></div>
+          <div class="vs-circle">VS</div>
+          <div class="vs-spark-line"></div>
+        </div>
+
+        <!-- Taekwondo Clash Card -->
+        <div class="clash-card clash-card-tkd" onclick="location.href='#taekwondo'">
+          <div>
+            <span class="card-tag tag-tkd">THE WAY OF FOOT · 跆拳道</span>
+            <h2 class="card-title text-thunder">雷霆萬鈞 · 空中旋踢</h2>
+            <p class="card-epithet">「腿如長鞭貫日，動如雷霆破空」</p>
+          </div>
+
+          <!-- Dynamic TKD High Kick SVG Artwork -->
+          <div class="artwork-display">
+            <svg class="artwork-svg" viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Thunder Glow Base -->
+              <circle cx="100" cy="80" r="65" fill="url(#tkdGlowGrad)" opacity="0.4"/>
+              <!-- High Kick Leg Arc Vector -->
+              <path d="M40 130 C60 115 85 90 120 60 C140 45 165 30 175 40 C185 50 165 75 140 95 C105 120 70 135 40 130 Z" fill="#00e5ff" stroke="#ffffff" stroke-width="3"/>
+              <!-- Foot Strike Vector -->
+              <path d="M165 32 C178 22 188 35 182 48 C176 58 160 52 165 32 Z" fill="#0077ff" stroke="#00ffff" stroke-width="2"/>
+              <!-- Whirlwind / Lightning Arc -->
+              <path d="M90 120 C130 125 170 95 180 50" stroke="#00f2fe" stroke-width="3" stroke-dasharray="6 4" stroke-linecap="round"/>
+              <path d="M120 140 C155 140 190 110 195 70" stroke="#ffd700" stroke-width="2" stroke-linecap="round"/>
+              <!-- Impact Shockwave -->
+              <circle cx="180" cy="40" r="8" stroke="#fff" stroke-width="2" fill="none"/>
+              <circle cx="180" cy="40" r="16" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="4 2" fill="none"/>
+              <defs>
+                <radialGradient id="tkdGlowGrad" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.8"/>
+                  <stop offset="100%" stop-color="#00e5ff" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+            </svg>
+          </div>
+
+          <div class="card-stats">
+            <div class="stat-item">
+              <div class="stat-label">打擊核心</div>
+              <div class="stat-value" style="color: var(--tkd-primary);">制空踢技 & 旋風連擊</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">踢擊時速</div>
+              <div class="stat-value" style="color: var(--gold-accent);">215 km/h (超音速鞭擊)</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Hero Actions -->
+      <div class="hero-actions">
+        <a href="#boxing" class="btn-primary-fire">🔥 探索拳擊殿堂 (Boxing)</a>
+        <a href="#taekwondo" class="btn-primary-thunder">⚡ 領略跆拳絕技 (Taekwondo)</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       INTERACTIVE COMBO ARENA (打擊與連段模擬器)
+       =================================================== */
+  -->
+  <section class="section arena-section" id="arena">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">INTERACTIVE COMBO SIMULATOR</span>
+        <h2 class="section-title">熱血連招對決場</h2>
+        <p class="section-desc">
+          點擊招式按鈕或敲擊鍵盤熱鍵（Q/W/E/R 拳擊 · A/S/D/F 跆拳道），親身體驗真實音效合成與震屏連擊快感！
+        </p>
+      </div>
+
+      <div class="arena-box">
+        <!-- Top HUD -->
+        <div class="arena-top-hud">
+          <div class="hud-counter-group">
+            <span class="combo-badge-text">COMBO HITS</span>
+            <span class="combo-count-number" id="comboCount">0</span>
+          </div>
+          <div class="hud-damage-meter">
+            <div class="damage-label">累積總傷害 (ACCUMULATED DMG)</div>
+            <div class="damage-value" id="totalDamage">0</div>
+          </div>
+        </div>
+
+        <!-- Stage Hit Zone -->
+        <div class="arena-stage" id="arenaStage" title="點擊任意區域隨機出招">
+          <div class="impact-spark-container"></div>
+          
+          <!-- Punching Dummy Target -->
+          <div class="strike-dummy" id="strikeDummy">
+            <svg class="strike-dummy-svg" viewBox="0 0 120 120" fill="none">
+              <!-- Target Head -->
+              <circle cx="60" cy="40" r="24" fill="#181824" stroke="#ffd700" stroke-width="3"/>
+              <circle cx="60" cy="40" r="14" stroke="#ff2a44" stroke-width="2" stroke-dasharray="4 2"/>
+              <circle cx="60" cy="40" r="4" fill="#00e5ff"/>
+              <!-- Target Body -->
+              <path d="M35 70 C35 60 85 60 85 70 L80 110 C80 115 40 115 40 110 Z" fill="#181824" stroke="#ffd700" stroke-width="3"/>
+              <!-- Strike Crosshairs -->
+              <line x1="60" y1="20" x2="60" y2="60" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+              <line x1="40" y1="40" x2="80" y2="40" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+              <line x1="45" y1="85" x2="75" y2="85" stroke="#ff2a44" stroke-width="2"/>
+            </svg>
+          </div>
+
+          <div class="strike-status-feed" id="strikeStatusFeed">
+            <span>READY TO FIGHT! 請選擇招式或按鍵出招</span>
+          </div>
+        </div>
+
+        <!-- Strike Controls Grid -->
+        <div class="arena-controls">
+          
+          <!-- Boxing Controls -->
+          <div class="control-panel">
+            <h3 class="panel-title" style="color: var(--box-primary);">
+              <span>🥊</span> 拳擊重拳系統 (Boxing Strikes)
+            </h3>
+            <div class="btn-grid">
+              <button class="strike-btn box-btn" data-move="jab">
+                <span class="key-badge">KEY [Q]</span>
+                <span class="btn-move-name">刺拳 (Jab)</span>
+                <span class="btn-move-type">前手刺探 · 45 DMG</span>
+              </button>
+              <button class="strike-btn box-btn" data-move="cross">
+                <span class="key-badge">KEY [W]</span>
+                <span class="btn-move-name">後手直拳 (Cross)</span>
+                <span class="btn-move-type">重心重砲 · 120 DMG</span>
+              </button>
+              <button class="strike-btn box-btn" data-move="hook">
+                <span class="key-badge">KEY [E]</span>
+                <span class="btn-move-name">擺勾拳 (Hook)</span>
+                <span class="btn-move-type">致命弧度 · 155 DMG</span>
+              </button>
+              <button class="strike-btn box-btn" data-move="uppercut">
+                <span class="key-badge">KEY [R]</span>
+                <span class="btn-move-name">上勾拳 (Uppercut)</span>
+                <span class="btn-move-type">拔地下顎 · 180 DMG</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Taekwondo Controls -->
+          <div class="control-panel">
+            <h3 class="panel-title" style="color: var(--tkd-primary);">
+              <span>🥋</span> 跆拳腿法系統 (TKD Kicks)
+            </h3>
+            <div class="btn-grid">
+              <button class="strike-btn tkd-btn" data-move="front_kick">
+                <span class="key-badge">KEY [A]</span>
+                <span class="btn-move-name">前踢 (Front Kick)</span>
+                <span class="btn-move-type">直線破障 · 60 DMG</span>
+              </button>
+              <button class="strike-btn tkd-btn" data-move="roundhouse">
+                <span class="key-badge">KEY [S]</span>
+                <span class="btn-move-name">旋踢 (Roundhouse)</span>
+                <span class="btn-move-type">極限鞭擊 · 140 DMG</span>
+              </button>
+              <button class="strike-btn tkd-btn" data-move="axe_kick">
+                <span class="key-badge">KEY [D]</span>
+                <span class="btn-move-name">下壓 (Axe Kick)</span>
+                <span class="btn-move-type">戰斧劈扣 · 175 DMG</span>
+              </button>
+              <button class="strike-btn tkd-btn" data-move="spinning_540">
+                <span class="key-badge">KEY [F]</span>
+                <span class="btn-move-name">540°旋風踢 (540 Kick)</span>
+                <span class="btn-move-type">空中絕技 · 260 DMG</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="arena-footer-tip">
+          💡 連招技巧：嘗試 <strong>Q → W → E → F</strong>（刺拳 + 直拳 + 勾拳 + 540°旋風踢）打出滿堂喝采的高傷終結技！
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       BOXING DEEP-DIVE (拳擊殿堂)
+       =================================================== -->
+  <section class="section" id="boxing">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" style="color: var(--box-primary);">THE SWEET SCIENCE</span>
+        <h2 class="section-title">拳擊：力量與防禦的終極藝術</h2>
+        <p class="section-desc">
+          源自古希臘角鬥，經歷數百年淬煉。拳擊不僅僅是重拳互毆，更是距離判斷、重心轉移、閃躲節奏與心理博弈的巔峰科學。
+        </p>
+      </div>
+
+      <!-- Boxing 4 Core Pillars -->
+      <div class="boxing-pillar-grid">
+        <div class="pillar-card box-card">
+          <div class="pillar-icon">⚡</div>
+          <h3 class="pillar-title">步伐與重心 (Footwork)</h3>
+          <p class="pillar-desc">
+            「蝴蝶般飛舞」的精髓所在。前腳掌彈跳、刺步進逼與側向滑步，始終保持身體重心在兩腿之間，隨時兼備進攻爆發與極限後撤。
+          </p>
+        </div>
+
+        <div class="pillar-card box-card">
+          <div class="pillar-icon">🛡️</div>
+          <h3 class="pillar-title">防守體系 (Defense Matrix)</h3>
+          <p class="pillar-desc">
+            從泰森標誌性的 Peek-a-boo（雙手護臉近身搖閃）到梅威瑟的 Philly Shell（肩部格擋反射反擊），將來襲拳頭以毫釐之差化解於無形。
+          </p>
+        </div>
+
+        <div class="pillar-card box-card">
+          <div class="pillar-icon">🥊</div>
+          <h3 class="pillar-title">動力鏈發力 (Kinetic Chain)</h3>
+          <p class="pillar-desc">
+            拳力非源於手臂，而是「起於腳跟、轉於腰胯、貫於肩背、爆於拳峰」。旋胯帶動軀幹的瞬間爆發，可產生高達數百公斤的破壞力。
+          </p>
+        </div>
+
+        <div class="pillar-card box-card">
+          <div class="pillar-icon">🧠</div>
+          <h3 class="pillar-title">拳擊智商 (Ring Generalship)</h3>
+          <p class="pillar-desc">
+            控制擂台中央空間，用刺拳遮蔽對手視野，誘敵深入並抓住眨眼間的空隙施展致命迎擊（Counter Punch）。
+          </p>
+        </div>
+      </div>
+
+      <!-- Boxing Signature Techniques -->
+      <h3 class="font-display" style="font-size: 1.8rem; margin-bottom: 24px; text-align: center; color: var(--box-primary);">
+        四大經典拳法深度解析
+      </h3>
+
+      <div class="technique-grid">
+        
+        <!-- Tech 1: Jab -->
+        <div class="tech-card">
+          <div class="tech-header">
+            <span class="tech-num">01</span>
+            <span class="tech-badge badge-fire">先手之王</span>
+          </div>
+          <h4 class="tech-title">刺拳 (The Jab)</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">
+            拳擊中最重要也最頻繁使用的武器。前手直線快速彈出，用於試探距離、干擾節奏與破壞對手防線。
+          </p>
+          <div class="tech-diagram">
+            <svg viewBox="0 0 200 80" fill="none">
+              <line x1="20" y1="40" x2="160" y2="40" stroke="#ff2a44" stroke-width="4" stroke-linecap="round"/>
+              <polygon points="160,30 180,40 160,50" fill="#ffd700"/>
+              <circle cx="20" cy="40" r="8" fill="#fff"/>
+              <text x="70" y="30" fill="#a0a5b8" font-size="10" font-family="sans-serif">直線極速貫穿 (High Velocity)</text>
+            </svg>
+          </div>
+          <div class="tech-meta-list">
+            <div class="tech-meta-item"><span>打擊目標</span><span class="tech-meta-val">面部鼻樑 / 下顎</span></div>
+            <div class="tech-meta-item"><span>主要功用</span><span class="tech-meta-val">距離量測 / 破防連招</span></div>
+            <div class="tech-meta-item"><span>出拳速度</span><span class="tech-meta-val">0.15 秒極致反應</span></div>
+          </div>
+        </div>
+
+        <!-- Tech 2: Cross -->
+        <div class="tech-card">
+          <div class="tech-header">
+            <span class="tech-num">02</span>
+            <span class="tech-badge badge-fire">毀滅重砲</span>
+          </div>
+          <h4 class="tech-title">後手直拳 (Straight Cross)</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">
+            主力重拳。後腳蹬地、髖部大幅度旋轉將全身動能匯聚於一點，直擊敵方中路，往往具備一擊擊倒 (KO) 的威力。
+          </p>
+          <div class="tech-diagram">
+            <svg viewBox="0 0 200 80" fill="none">
+              <path d="M20 55 Q90 10 170 35" stroke="#ff2a44" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <polygon points="165,25 185,35 168,48" fill="#ff7b00"/>
+              <circle cx="20" cy="55" r="10" fill="#ffd700"/>
+              <text x="50" y="70" fill="#a0a5b8" font-size="10" font-family="sans-serif">後腳蹬地 + 髖關節 90° 爆發轉動</text>
+            </svg>
+          </div>
+          <div class="tech-meta-list">
+            <div class="tech-meta-item"><span>打擊目標</span><span class="tech-meta-val">下顎正中 / 心窩中路</span></div>
+            <div class="tech-meta-item"><span>主要功用</span><span class="tech-meta-val">終結 KO / 迎擊破壞</span></div>
+            <div class="tech-meta-item"><span>衝擊力道</span><span class="tech-meta-val">可達 700-1000 kg</span></div>
+          </div>
+        </div>
+
+        <!-- Tech 3: Hook -->
+        <div class="tech-card">
+          <div class="tech-header">
+            <span class="tech-num">03</span>
+            <span class="tech-badge badge-fire">側向死角</span>
+          </div>
+          <h4 class="tech-title">平擺勾拳 (The Hook)</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">
+            手臂保持 90 度直角彎曲，沿水平弧線越過對手正面防護，精準打擊頭部兩側太陽穴、下顎角或肝臟區。
+          </p>
+          <div class="tech-diagram">
+            <svg viewBox="0 0 200 80" fill="none">
+              <path d="M30 65 C60 10 140 10 165 45" stroke="#ff2a44" stroke-width="4.5" fill="none"/>
+              <polygon points="158,55 175,45 168,30" fill="#ffd700"/>
+              <text x="60" y="70" fill="#a0a5b8" font-size="10" font-family="sans-serif">水平弧線 90° 肘角緊鎖</text>
+            </svg>
+          </div>
+          <div class="tech-meta-list">
+            <div class="tech-meta-item"><span>打擊目標</span><span class="tech-meta-val">太陽穴 / 下顎邊緣 / 肝臟</span></div>
+            <div class="tech-meta-item"><span>主要功用</span><span class="tech-meta-val">繞過正面抱架 / 劇烈震盪</span></div>
+            <div class="tech-meta-item"><span>擊倒率</span><span class="tech-meta-val">職業賽事 KO 佔比最高</span></div>
+          </div>
+        </div>
+
+        <!-- Tech 4: Uppercut -->
+        <div class="tech-card">
+          <div class="tech-header">
+            <span class="tech-num">04</span>
+            <span class="tech-badge badge-fire">破土撕裂</span>
+          </div>
+          <h4 class="tech-title">上勾拳 (The Uppercut)</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">
+            雙膝微曲蓄力，由下自上垂直向上發力，專門撕裂低頭閃躲或緊密抱架的對手下顎，具備強大拔地破甲力。
+          </p>
+          <div class="tech-diagram">
+            <svg viewBox="0 0 200 80" fill="none">
+              <path d="M40 70 Q90 70 120 20" stroke="#ff2a44" stroke-width="4.5" fill="none"/>
+              <polygon points="110,15 125,15 128,30" fill="#ffd700"/>
+              <text x="40" y="45" fill="#a0a5b8" font-size="10" font-family="sans-serif">垂直由下至上破防鑽入</text>
+            </svg>
+          </div>
+          <div class="tech-meta-list">
+            <div class="tech-meta-item"><span>打擊目標</span><span class="tech-meta-val">下巴底部 / 胃部中脘</span></div>
+            <div class="tech-meta-item"><span>主要功用</span><span class="tech-meta-val">近身內圍絞殺 / 仰頭破防</span></div>
+            <div class="tech-meta-item"><span>特點</span><span class="tech-meta-val">視野盲區打擊</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       TAEKWONDO DEEP-DIVE (跆拳道專題)
+       =================================================== -->
+  <section class="section" id="taekwondo" style="background: rgba(8, 12, 24, 0.4);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" style="color: var(--tkd-primary);">THE WAY OF FOOT AND FIST</span>
+        <h2 class="section-title">跆拳道：靈動與空中的極致美學</h2>
+        <p class="section-desc">
+          「跆」為踢擊，「拳」為拳打，「道」為修養之途。以腿代兵，融合高轉速旋轉動能與極速制空力，將人體肢體延伸至極限。
+        </p>
+      </div>
+
+      <!-- TKD 4 Core Pillars -->
+      <div class="boxing-pillar-grid">
+        <div class="pillar-card tkd-card">
+          <div class="pillar-icon">🥋</div>
+          <h3 class="pillar-title">段位與精神體系 (Spirit & Belts)</h3>
+          <p class="pillar-desc">
+            從純潔初學的白帶、象徵大地的黃綠藍紅帶，到歷經千錘百鍊的黑帶（1-9段）。五大信條：禮儀、廉恥、忍耐、克己、百折不屈。
+          </p>
+        </div>
+
+        <div class="pillar-card tkd-card">
+          <div class="pillar-icon">🌪️</div>
+          <h3 class="pillar-title">旋轉角動量 (Rotational Torque)</h3>
+          <p class="pillar-desc">
+            跆拳道踢擊的物理學秘密。利用支撐腳的極速軸心旋轉與腰背發力，將力矩放大 3-5 倍，在擊中瞬間釋放如重錘般的角動量。
+          </p>
+        </div>
+
+        <div class="pillar-card tkd-card">
+          <div class="pillar-icon">🦅</div>
+          <h3 class="pillar-title">制空飛躍踢法 (Aerial Mastery)</h3>
+          <p class="pillar-desc">
+            克服重力束縛的極致武技。360°、540° 乃至 720° 空中轉體踢靶，結合極高靈敏度與滯空平衡，兼具致命殺傷與震撼美感。
+          </p>
+        </div>
+
+        <div class="pillar-card tkd-card">
+          <div class="pillar-icon">🎯</div>
+          <h3 class="pillar-title">奧運計分藝術 (Olympic Precision)</h3>
+          <p class="pillar-desc">
+            WT 世界跆拳道聯盟電子護具時代。頭部旋轉踢擊高達 5 分！極致考驗選手在毫秒級瞬間的距離掌握、變線騙腿與閃避得分能力。
+          </p>
+        </div>
+      </div>
+
+      <!-- TKD Signature Techniques -->
+      <h3 class="font-display" style="font-size: 1.8rem; margin-bottom: 24px; text-align: center; color: var(--tkd-primary);">
+        四大經典神技深度解析
+      </h3>
+
+      <div class="technique-grid">
+        
+        <!-- TKD 1: Roundhouse -->
+        <div class="tech-card">
+          <div class="tech-header">
+            <span class="tech-num">01</span>
+            <span class="tech-badge badge-thunder">核心基石</span>
+          </div>
+          <h4 class="tech-title">旋踢 (Roundhouse Kick)</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">
+            跆拳道最具代表性的王牌踢技。膝蓋折疊提膝至胸前，軸心腳旋轉 180 度，小腿如皮鞭般凌厲彈出，腳背打擊對手側肋或頭部。
+          </p>
+          <div class="tech-diagram">
+            <svg viewBox="0 0 200 80" fill="none">
+              <path d="M20 60 Q80 15 170 30" stroke="#00e5ff" stroke-width="4.5" fill="none"/>
+              <polygon points="165,20 185,30 170,42" fill="#ffd700"/>
+              <circle cx="20" cy="60" r="6" fill="#fff"/>
+              <text x="45" y="70" fill="#a0a5b8" font-size="10" font-family="sans-serif">提膝折疊 → 軸心 180° 旋轉彈射</text>
+            </svg>
+          </div>
+          <div class="tech-meta-list">
+            <div class="tech-meta-item"><span>打擊目標</span><span class="tech-meta-val">軀幹側肋 / 頭部護具</span></div>
+            <div class="tech-meta-item"><span>奧運得分</span><span class="tech-meta-val">軀幹 2 分 / 頭部 3 分</span></div>
+            <div class="tech-meta-item"><span>時速峰值</span><span class="tech-meta-val">可突破 200 km/h</span></div>
+          </div>
+        </div>
+
+        <!-- TKD 2: Axe Kick -->
+        <div class="tech-card">
+          <div class="tech-header">
+            <span class="tech-num">02</span>
+            <span class="tech-badge badge-thunder">戰斧劈扣</span>
+          </div>
+          <h4 class="tech-title">下壓踢 (Axe Kick)</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">
+            將腿高高直線抬起超越對手頭頂上方，隨後利用重力加速度與臀大肌收縮，以腳後跟或腳底如戰斧般重重劈砸對手面部或鎖骨。
+          </p>
+          <div class="tech-diagram">
+            <svg viewBox="0 0 200 80" fill="none">
+              <path d="M30 65 C60 10 130 5 160 65" stroke="#00e5ff" stroke-width="4.5" fill="none"/>
+              <polygon points="150,55 160,75 170,55" fill="#ffd700"/>
+              <text x="50" y="40" fill="#a0a5b8" font-size="10" font-family="sans-serif">高空制高點 → 戰斧垂直重壓</text>
+            </svg>
+          </div>
+          <div class="tech-meta-list">
+            <div class="tech-meta-item"><span>打擊目標</span><span class="tech-meta-val">面門鼻骨 / 鎖骨 / 肩胛</span></div>
+            <div class="tech-meta-item"><span>主要功用</span><span class="tech-meta-val">強勢破開抱架 / 壓迫防線</span></div>
+            <div class="tech-meta-item"><span>視覺震撼</span><span class="tech-meta-val">凌空高度超越 2 米</span></div>
+          </div>
+        </div>
+
+        <!-- TKD 3: Spinning Hook -->
+        <div class="tech-card">
+          <div class="tech-header">
+            <span class="tech-num">03</span>
+            <span class="tech-badge badge-thunder">後旋盲區</span>
+          </div>
+          <h4 class="tech-title">後旋踢 (Spinning Hook Kick)</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">
+            極具欺騙性的終結神技。背轉身 360 度帶動全身重量，腳後跟以巨大弧形從對手盲區橫掃而過，是比賽中最震撼的直接 KO 踢法。
+          </p>
+          <div class="tech-diagram">
+            <svg viewBox="0 0 200 80" fill="none">
+              <path d="M30 50 C70 80 130 10 170 35" stroke="#00e5ff" stroke-width="4.5" fill="none"/>
+              <polygon points="160,25 180,35 168,48" fill="#ffd700"/>
+              <text x="40" y="75" fill="#a0a5b8" font-size="10" font-family="sans-serif">360° 背轉身盲區爆發掃擊</text>
+            </svg>
+          </div>
+          <div class="tech-meta-list">
+            <div class="tech-meta-item"><span>打擊目標</span><span class="tech-meta-val">頭部顳部 / 下顎骨</span></div>
+            <div class="tech-meta-item"><span>奧運得分</span><span class="tech-meta-val">旋轉命中頭部 5 分！</span></div>
+            <div class="tech-meta-item"><span>危險係數</span><span class="tech-meta-val">極高直接昏厥率</span></div>
+          </div>
+        </div>
+
+        <!-- TKD 4: 540 Kick -->
+        <div class="tech-card">
+          <div class="tech-header">
+            <span class="tech-num">04</span>
+            <span class="tech-badge badge-thunder">極限制空</span>
+          </div>
+          <h4 class="tech-title">540° 旋風飛踢 (540 Kick)</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">
+            跆拳道特技與表演特技的頂點。空中旋轉 540 度後用起跳的那隻腳完成高空重擊並平穩單腳著地，人體動力學與滯空藝術的奇蹟。
+          </p>
+          <div class="tech-diagram">
+            <svg viewBox="0 0 200 80" fill="none">
+              <circle cx="100" cy="40" r="30" stroke="#00e5ff" stroke-width="2.5" stroke-dasharray="6 3"/>
+              <path d="M70 40 L160 25" stroke="#ffd700" stroke-width="4"/>
+              <polygon points="155,18 175,25 160,35" fill="#fff"/>
+              <text x="45" y="75" fill="#a0a5b8" font-size="10" font-family="sans-serif">空中 540° 連續轉體 + 同腳落著</text>
+            </svg>
+          </div>
+          <div class="tech-meta-list">
+            <div class="tech-meta-item"><span>難度等級</span><span class="tech-meta-val">★★★★★ (大師級特技)</span></div>
+            <div class="tech-meta-item"><span>核心需求</span><span class="tech-meta-val">彈跳爆發 / 空中姿態感知</span></div>
+            <div class="tech-meta-item"><span>應用場景</span><span class="tech-meta-val">品勢示範 / 武道極限挑戰</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       RADAR & COMPARISON (五維戰術數據對決)
+       =================================================== -->
+  <section class="section" id="radar">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">TACTICAL ATTRIBUTES COMPARISON</span>
+        <h2 class="section-title">五維戰術數據對決</h2>
+        <p class="section-desc">
+          拳擊的近身壓迫與緊密防守，對上跆拳道的長程制空與速度靈動。透過五維雷達圖全面審視兩大武道的戰術優劣。
+        </p>
+      </div>
+
+      <div class="comparison-container">
+        
+        <!-- Radar Chart Canvas -->
+        <div class="radar-wrapper">
+          <canvas id="radarCanvas"></canvas>
+          
+          <div class="radar-legends">
+            <div class="legend-item">
+              <span class="legend-color legend-box"></span>
+              <span style="color: var(--box-primary);">拳擊 (Boxing)</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-color legend-tkd"></span>
+              <span style="color: var(--tkd-primary);">跆拳道 (Taekwondo)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparative Attributes Matrix -->
+        <div class="matrix-list">
+          
+          <div class="matrix-item">
+            <div class="matrix-header">
+              <span>攻擊有效距離 (Range)</span>
+              <span>跆拳道 (98%) vs 拳擊 (55%)</span>
+            </div>
+            <div class="matrix-bars">
+              <div class="bar-track"><div class="bar-fill-tkd" style="width: 98%;"></div></div>
+              <div class="bar-track"><div class="bar-fill-box" style="width: 55%;"></div></div>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 6px;">
+              腿長通常為手臂的 1.5 倍，跆拳道具備無可比擬的中遠距離先手壓制力。
+            </p>
+          </div>
+
+          <div class="matrix-item">
+            <div class="matrix-header">
+              <span>瞬間破壞力 (Power)</span>
+              <span>拳擊 (95%) vs 跆拳道 (90%)</span>
+            </div>
+            <div class="matrix-bars">
+              <div class="bar-track"><div class="bar-fill-box" style="width: 95%;"></div></div>
+              <div class="bar-track"><div class="bar-fill-tkd" style="width: 90%;"></div></div>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 6px;">
+              拳擊重拳重心穩固、動能穿透深；跆拳道旋踢受角動量加成，兩者皆具一擊 KO 能力。
+            </p>
+          </div>
+
+          <div class="matrix-item">
+            <div class="matrix-header">
+              <span>防禦緊密度 (Defense)</span>
+              <span>拳擊 (92%) vs 跆拳道 (65%)</span>
+            </div>
+            <div class="matrix-bars">
+              <div class="bar-track"><div class="bar-fill-box" style="width: 92%;"></div></div>
+              <div class="bar-track"><div class="bar-fill-tkd" style="width: 65%;"></div></div>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 6px;">
+              拳擊手部防架緊貼頭部軀幹、閃躲體系完整；跆拳道側身站架偏重距離閃避。
+            </p>
+          </div>
+
+          <div class="matrix-item">
+            <div class="matrix-header">
+              <span>移動敏捷度 (Agility)</span>
+              <span>跆拳道 (96%) vs 拳擊 (85%)</span>
+            </div>
+            <div class="matrix-bars">
+              <div class="bar-track"><div class="bar-fill-tkd" style="width: 96%;"></div></div>
+              <div class="bar-track"><div class="bar-fill-box" style="width: 85%;"></div></div>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 6px;">
+              跆拳道側向彈跳換架極其靈巧；拳擊步伐更偏向穩定推進與角度切入。
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       HALL OF LEGENDS (傳奇名人堂)
+       =================================================== -->
+  <section class="section" id="legends">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">HALL OF MARTIAL LEGENDS</span>
+        <h2 class="section-title">傳奇名人堂</h2>
+        <p class="section-desc">
+          將武道精神化為傳奇的擂台王者與宗師，他們的名字代表著堅韌、熱血與永不言敗。
+        </p>
+      </div>
+
+      <div class="legends-grid">
+        
+        <!-- Legend 1: Muhammad Ali -->
+        <div class="legend-card">
+          <div class="legend-header">
+            <div class="legend-avatar avatar-box">ALI</div>
+            <div>
+              <h3 class="legend-name">穆罕默德·阿里</h3>
+              <div class="legend-nickname">Muhammad Ali · 拳壇之王</div>
+            </div>
+          </div>
+          <p class="legend-quote">
+            「像蝴蝶般翩翩飛舞，像蜜蜂般精準螫刺。你的手打不到眼睛看不到的目標。」
+          </p>
+          <div class="legend-feats">
+            <span class="feat-tag">三屆世界重量級拳王</span>
+            <span class="feat-tag">世紀蝴蝶步</span>
+            <span class="feat-tag">20世紀最偉大運動員</span>
+          </div>
+        </div>
+
+        <!-- Legend 2: Mike Tyson -->
+        <div class="legend-card">
+          <div class="legend-header">
+            <div class="legend-avatar avatar-box">TYSON</div>
+            <div>
+              <h3 class="legend-name">邁克·泰森</h3>
+              <div class="legend-nickname">Mike Tyson · 鐵人巨獸</div>
+            </div>
+          </div>
+          <p class="legend-quote">
+            「每個人在被打到臉之前，都有一個完美的計畫。」
+          </p>
+          <div class="legend-feats">
+            <span class="feat-tag">史上最年輕重量級拳王</span>
+            <span class="feat-tag">Peek-a-boo 毀滅打擊</span>
+            <span class="feat-tag">首局 KO 之王</span>
+          </div>
+        </div>
+
+        <!-- Legend 3: Taekwondo Masters & Olympic Glory -->
+        <div class="legend-card">
+          <div class="legend-header">
+            <div class="legend-avatar avatar-tkd">TKD</div>
+            <div>
+              <h3 class="legend-name">奧運風雲名將</h3>
+              <div class="legend-nickname">Olympic Gold Champions</div>
+            </div>
+          </div>
+          <p class="legend-quote">
+            「跆拳道不僅是戰鬥技藝，更是讓人在面對強大逆境時，擁有直視恐懼的勇氣。」
+          </p>
+          <div class="legend-feats">
+            <span class="feat-tag">奧運正式核心項目</span>
+            <span class="feat-tag">極限 540° KO 傳奇</span>
+            <span class="feat-tag">全球 8000 萬修煉者</span>
+          </div>
+        </div>
+
+        <!-- Legend 4: Manny Pacquiao -->
+        <div class="legend-card">
+          <div class="legend-header">
+            <div class="legend-avatar avatar-box">PAC</div>
+            <div>
+              <h3 class="legend-name">曼尼·帕奎奧</h3>
+              <div class="legend-nickname">Manny Pacquiao · 亞洲驅逐艦</div>
+            </div>
+          </div>
+          <p class="legend-quote">
+            「只要心中有信仰與不屈的毅力，任何渺小的起點都能創造世界奇蹟。」
+          </p>
+          <div class="legend-feats">
+            <span class="feat-tag">橫跨 8 個量級世界拳王</span>
+            <span class="feat-tag">閃電般多角度組合拳</span>
+            <span class="feat-tag">國家英雄榮譽</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       GEAR & TRAINING PATH (裝備與修煉指南)
+       =================================================== -->
+  <section class="section" id="gear" style="background: rgba(8, 12, 24, 0.4);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">GEAR & TRAINING PATHWAY</span>
+        <h2 class="section-title">格鬥裝備與新手修煉指引</h2>
+        <p class="section-desc">
+          踏入武道世界的第一步。了解專業防護裝備的選用標準，以及科學化體能與技術進階階梯。
+        </p>
+      </div>
+
+      <!-- Gear Grid -->
+      <div class="gear-grid">
+        <div class="gear-card">
+          <div class="gear-icon-box" style="color: var(--box-primary);">🥊</div>
+          <h4 class="gear-title">拳擊手套 (Boxing Gloves)</h4>
+          <p class="gear-desc">
+            沙包訓練建議選用 10-12 oz 緊湊手套；對打實戰 (Sparring) 必須使用 14-16 oz 厚實襯墊手套保護對手。
+          </p>
+        </div>
+
+        <div class="gear-card">
+          <div class="gear-icon-box" style="color: var(--gold-accent);">🩹</div>
+          <h4 class="gear-title">纏手帶 (Handwraps)</h4>
+          <p class="gear-desc">
+            4.5 米微彈性純棉纏帶，鎖死腕關節並支撐掌骨，防止出拳衝擊力導致腕骨扭傷或骨裂。
+          </p>
+        </div>
+
+        <div class="gear-card">
+          <div class="gear-icon-box" style="color: var(--tkd-primary);">🥋</div>
+          <h4 class="gear-title">跆拳道服 (Dobok)</h4>
+          <p class="gear-desc">
+            V 領套頭道服，高強度輕量化透氣纖維，確保大幅度劈腿與高空跳躍時無任何活動阻礙。
+          </p>
+        </div>
+
+        <div class="gear-card">
+          <div class="gear-icon-box" style="color: #00ff88;">🛡️</div>
+          <h4 class="gear-title">電子護胸與腳靶 (Hogu & Pads)</h4>
+          <p class="gear-desc">
+            WT 認證高感度電子護具，配合雙葉腳靶進行連續高速踢擊聽聲辨位與發力回饋訓練。
+          </p>
+        </div>
+      </div>
+
+      <!-- Training Checklist -->
+      <div class="training-checklist">
+        <h3 class="font-display" style="font-size: 1.6rem; text-align: center; margin-bottom: 8px;">
+          格鬥新人必備修煉四階段
+        </h3>
+        <p style="text-align: center; color: var(--text-secondary); font-size: 0.95rem;">
+          堅持每日基礎，打磨無懈可擊的肌肉記憶
+        </p>
+
+        <div class="checklist-grid">
+          <div class="check-item">
+            <div class="check-number">01</div>
+            <div class="check-content">
+              <h4>跳繩與核心體能 (Rope & Core)</h4>
+              <p>每日 15 分鐘變速雙搖跳繩鍛鍊小腿踝關節彈性，配合仰臥起坐與棒式建構堅若磐石的腹直肌與側腹核心。</p>
+            </div>
+          </div>
+
+          <div class="check-item">
+            <div class="check-number">02</div>
+            <div class="check-content">
+              <h4>鏡前空擊與步法 (Shadowboxing)</h4>
+              <p>對鏡修正站姿架勢，慢速體察每個出拳/起腿的重心轉移，每回合 3 分鐘不間斷專注呼吸節奏。</p>
+            </div>
+          </div>
+
+          <div class="check-item">
+            <div class="check-number">03</div>
+            <div class="check-content">
+              <h4>打靶與沙包發力 (Pad & Heavy Bag)</h4>
+              <p>由教練持靶反饋打擊角度，在重沙包上釋放真正穿透力，學會在碰撞瞬間收緊肌肉與拳峰。</p>
+            </div>
+          </div>
+
+          <div class="check-item">
+            <div class="check-number">04</div>
+            <div class="check-content">
+              <h4>條件實戰對練 (Controlled Sparring)</h4>
+              <p>佩戴護頭與護齒，在安全速度下模擬真實對抗，克服閉眼與恐懼本能，培養冷靜判斷力。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================
+       FOOTER
+       =================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-quote">
+        「武道非為傷人，而在於淬鍊心智，超越自我極限。」
+      </p>
+      <p class="footer-sub">
+        MARTIAL ARTS SPIRIT · NEVER BACK DOWN · RESPECT & DISCIPLINE
+      </p>
+      <div class="footer-divider"></div>
+      <p class="footer-copyright">
+        © 2026 極限雙武道對決 (Boxing × Taekwondo) · 熱血格鬥殿堂 · Crafted with Passion
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/audio.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
